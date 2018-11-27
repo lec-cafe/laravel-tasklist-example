@@ -13,8 +13,6 @@
                             {{$task->name}}
                         </h5>
 
-
-
                         <form action="/task/delete/{{$task->id}}" method="post">
                             @csrf
                             <button type="submit" class="btn btn-danger"> <i class="fa fa-trash"></i> &nbsp;DELETE</button>
