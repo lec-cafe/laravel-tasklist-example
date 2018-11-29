@@ -4,8 +4,45 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66ca7343889332c2b8ecca11c251430c",
+    "content-hash": "bd253bf2402a5f9f21661217e878b756",
     "packages": [
+        {
+            "name": "chatbox-inc/laravel-heroku",
+            "version": "0.0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/chatbox-inc/laravel-heroku.git",
+                "reference": "98f111b9a96188df91133c34cbbb3b8c601b3f14"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/chatbox-inc/laravel-heroku/zipball/98f111b9a96188df91133c34cbbb3b8c601b3f14",
+                "reference": "98f111b9a96188df91133c34cbbb3b8c601b3f14",
+                "shasum": ""
+            },
+            "require": {
+                "php": "7.*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Chatbox\\Heroku\\": [
+                        "./src"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "mikakane",
+                    "email": "mikakane2@gmail.com"
+                }
+            ],
+            "time": "2017-12-28T20:20:05+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",
