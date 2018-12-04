@@ -19,7 +19,9 @@ Route::get('/', function () {
 Route::get('/tasklist', function () {
     $tasks = \App\Task::all();
     return view('tasklist',[
-        "tasks" => $tasks
+        "tasks" => $tasks,
+        "errors" => session()->get("FORM_ERRORS"),
+        "inputs" => session()->get("OLD_INPUTS"),
     ]);
 });
 
@@ -37,6 +39,17 @@ Route::get('/task/{id}', function ($id) {
 
 // タスク追加
 Route::post('/task', function () {
+    $rules = [
+        "task_name" => ["required","max:10"]
+    ];
+    $val = validator(request()->all(),$rules);
+
+    if($val->fails()){
+        session()->flash("OLD_INPUTS",request()->all());
+        session()->flash("FORM_ERRORS",$val->errors());
+        return redirect("/tasklist");
+    }
+
     $task = new \App\Task();
     $task->name = request("task_name");
     $task->save();

@@ -3,23 +3,28 @@
 @section('content')
     <div class="container">
         <div class="row d-flex justify-content-center mb-3">
-            @if (count($errors) > 0)
-            <div class="alert alert-danger">
-                <strong>Whoops! Something went wrong!</strong>
-                <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-                </ul>
-            </div>
-            @endif
             <div class="col-8 mt-5">
+                @if ($errors)
+                    <div class="alert alert-danger">
+
+                        <strong>Whoops! Something went wrong!</strong>
+                        <ul>
+                            @foreach($errors->all() as $error)
+                                {{ $error }}
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <form action="/task" method="POST">
                     @csrf
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label">Task</label>
                         <div class="col-sm-10">
-                            <input type="text" name="task_name" class="form-control" >
+                            @if($inputs)
+                            <input type="text" name="task_name" class="form-control" value="{{$inputs["task_name"]}}">
+                            @else
+                            <input type="text" name="task_name" class="form-control" value="">
+                            @endif
                         </div>
                     </div>
                     <div class="form-group row">
